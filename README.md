@@ -24,12 +24,12 @@ A simple Python Flask application that acts as an Outgoing Webhook for [Zulip](h
    git clone https://github.com/YOUR_USERNAME/zulip-to-email-forwarder.git
    cd zulip-to-email-forwarder
 
-1. Install dependencies:
+##1. Install dependencies:
 code
 Bash
 pip install -r requirements.txt
 
-2. Set your Environment Variables:
+##2. Set your Environment Variables:
 You need to provide your SMTP credentials so the app can send emails. On Linux/macOS:
 code
 Bash
@@ -39,7 +39,7 @@ export SMTP_USER="your-email@gmail.com"
 export SMTP_PASS="your-app-password"
 export DESTINATION_EMAIL="team-inbox@yourdomain.com"
 
-Run the application:
+##Run the application:
 code
 Bash
 python app.py
@@ -48,7 +48,7 @@ The app will start running on http://localhost:5000.
 
 (Note: To test this locally with Zulip, you will need to expose your local port to the internet using a tool like ngrok: ngrok http 5000)
 
-Deployment
+##Deployment
 
 For production, host this app on a platform like Heroku, Render, AWS, or DigitalOcean.
 Make sure to:
@@ -59,7 +59,7 @@ code
 Bash
 gunicorn app:app --bind 0.0.0.0:$PORT
 
-Connecting to Zulip
+##Connecting to Zulip
 Once your app is hosted and has a public URL (e.g., https://my-zulip-email-app.herokuapp.com/zulip-to-email), configure Zulip to send messages to it:
 
 1. In Zulip, click the Gear Icon (⚙️) in the top right and go to Personal settings > Bots.
@@ -71,10 +71,10 @@ Once your app is hosted and has a public URL (e.g., https://my-zulip-email-app.h
 6. Click Create bot.
 7. Subscribe the bot to the Streams you want it to listen to, or mention it directly in a chat. Any message the bot can "see" will trigger the webhook and send an email!
 
-Customization
+##Customization
 You can easily change the format of the generated email by editing the msg.set_content() function inside app.py.
 
-License
+##License
 
 MIT License
 code
